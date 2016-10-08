@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/jquery-1.8.0.min.js"></script>
+	<body>
+
+	<input type="file" name="fileToUpload" id="fileToUpload"  multiple="multiple"/>
+	<input type="button" onclick="uploadFile();uploadFile2()" value="Upload Image" />
+	<div class="bar" style="height: 15px;width: 1px;background-color: red;"></div>
+	<button onclick="unUpload()">取消</button>
+	</body>
+	<script type="text/javascript" >
+	       function uploadProgress(evt) {
+        	alert(2)
+            if (evt.lengthComputable) {
+                var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+                document.getElementById('progressNumber').innerHTML = percentComplete.toString() + '%';
+            }
+            else {
+                document.getElementById('progressNumber').innerHTML = 'unable to compute';
+            }
+        }
+	
+		function callBack(json){
+			json=eval("(" + json + ")"); 
+			alert(json)
+		}
+		
+		function uploadFile() {
+		 	var fd = new FormData();
+            fd.append("file", document.getElementById('fileToUpload').files[0]);
+		
+            var xhr = new XMLHttpRequest();
+            xhr.timeout = 0;
+            
+           
+      	//xhr.upload.addEventListener("progress", uploadProgress, false);
+//      	xhr.upload.onprogress=uploadProgress;
+          	
+          //xhr.addEventListener("load", uploadComplete, false);
+          xhr.addEventListener("error", uploadFailed, true);
+         xhr.addEventListener("abort", uploadCanceled, false);
+
+//* load事件：传输成功完成。
+//
+//　　* abort事件：传输被用户取消。
+//
+//　　* error事件：传输中出现错误。
+//
+//　　* loadstart事件：传输开始。
+//
+//　　* loadEnd事件：传输结束，但是不知道成功还是失败。
+            
+            xhr.onreadystatechange = function(){
+            	
+				if(xhr.readyState==4 && xhr.status==200){
+					//alert(xhr.responseText);alert(xhr.responseXML);
+					callBack(xhr.responseText || xhr.responseXML);
+				}
+			};
+//			//侦查当前附件上传情况
+//          xhr.upload.onprogress = function(evt) {
+////              console.log(1)
+//				var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+//				$('.bar').css('width',percentComplete + '%');
+//          };
+
+			xhr.open("POST", "http://192.168.1.52/cpsystem/upload/file.action",true);
+
+
+
+//xhr.open("POST", "http://120.25.177.134:9090/upload/30/mul",true);
+
+
+//、xhr.setRequestHeader("Access-Control-Allow-Origin", "*");//需要在IIS里面配置，就可以跨域请求了
+//          xhr.setRequestHeader("Content-Type", "multipart/form-data");
+            
+            xhr.send(fd);
+            
+        }
+		
+		
+		
+		
+		
+		
+		
+		
+				function uploadFile2() {
+					if(document.getElementById('fileToUpload').files.length<2)
+					return ;
+		 	var fd = new FormData();
+            fd.append("file", document.getElementById('fileToUpload').files[1]);
+		
+            var xhr = new XMLHttpRequest();
+            xhr.timeout = 0;
+            xhr.onreadystatechange = function(){
+            	
+				if(xhr.readyState==4 && xhr.status==200){
+					//alert(xhr.responseText);alert(xhr.responseXML);
+					callBack(xhr.responseText || xhr.responseXML);
+				}
+			};
+
+xhr.open("POST", "http://192.168.1.52/cpsystem/upload/music.action",true);
+
+            
+            xhr.send(fd);
+        }
+            
+            
+            
+            
+            
+            
+            
+            
+        function uploadProgress(evt) {
+        	alert(2)
+            if (evt.lengthComputable) {
+                var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+                document.getElementById('progressNumber').innerHTML = percentComplete.toString() + '%';
+            }
+            else {
+                document.getElementById('progressNumber').innerHTML = 'unable to compute';
+            }
+        }
+ 
+        function uploadComplete(evt) {
+            /* This event is raised when the server send back a response */
+            alert(evt.target.responseText);
+        }
+ 
+        function uploadFailed(evt) {
+            alert("There was an error attempting to upload the file.");
+        }
+ 
+        function uploadCanceled(evt) {
+            alert("The upload has been canceled by the user or the browser dropped the connection.");
+        }
+            
+  
+		
+	</script>
+</html>

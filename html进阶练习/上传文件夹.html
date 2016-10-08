@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/jquery-1.8.0.min.js"></script>
+	<body>
+		
+<form action="http://120.25.177.134:9090/upload/30/mul" method="post" enctype="multipart/form-data"  >
+<input type="file" name="file" multiple  accept="audio/*"/>
+<input type="button" onclick="$('form').submit()">
+</form>
+
+
+<form action="http://localhost/cpsystem/upload/music.action" method="post" enctype="multipart/form-data"  >
+<input type="file" name="file" multiple  accept="audio/*"/>
+<input type="button" onclick="$('form').submit()" value="cp">
+</form>
+
+
+
+
+
+		
+	</body>
+</html>

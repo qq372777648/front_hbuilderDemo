@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/jquery-1.8.0.min.js"></script>
+	
+	<script src="js/TweenMax.min.js"></script>
+	<script type="text/javascript" src="js/ScrollToPlugin.min.js" ></script>
+	
+	<style type="text/css">
+.bottom-tools {
+    background: gray none repeat scroll 0 0;
+    box-shadow: 1px 1px 17px #ccc;
+    position: fixed;
+    right: 0;
+    z-index: 1070;
+}
+
+.qr-tool {
+    background-image: url(img/backgrounds.32.png);
+    background-position: -148px 0; /*左上角x,y*/
+    cursor: pointer;
+    height: 45px;
+    width: 45px;
+}
+.qr-tool:hover {
+    background-image: url(img/backgrounds.32.png);
+    background-position: -192px -46px;
+    height: 45px;
+    width: 45px;
+}
+#scrollUp {
+    background-image: url(img/backgrounds.32.png);
+    background-position: -54px -53px;
+    display: none;
+    height: 45px;
+    width: 45px;
+}
+#scrollUp:hover {
+    background-image: url(img/backgrounds.32.png);
+    background-position: -100px -53px;
+}
+
+.qr-img {
+    background-image: url(img/qr-img.png);
+    height: 176px;
+    left: -183px;
+    max-width: none;
+    padding-top: 57px;
+    position: absolute;
+    text-align: center;
+    top: -189px;
+    width: 173px;
+}
+	</style>
+	<body>
+		<img  src="img/img.jpg"/>
+		<!-- 底部文字返回顶部 -->
+<div class="box2">
+<a id="gotop2" href="javascript:void(0);">返回顶部</a>&nbsp;&nbsp;
+<a id="gotop6" href="javascript:void(0);">默认速度1秒</a>&nbsp;&nbsp;
+<a id="gotop3" href="javascript:void(0);">慢快慢的速度1秒</a>&nbsp;&nbsp;
+<a id="gotop4" href="javascript:void(0);">快慢快的速度1.5秒</a>&nbsp;&nbsp;
+</div>
+
+		<div class="bottom-tools" style="bottom: 100px;">
+			<div class="qr-tool" onmouseover="$('.qr-img').show()" onmouseout="$('.qr-img').hide()"></div>
+			<a title="飞回顶部" href="javascript:scroll(0,0);" id="scrollUp" style="display: block;" ></a>
+			<a title="飞回顶部" href="javascript:void(0);" id="scrollUp" style="display: block;" onclick="TweenMax.to(window, 1, {scrollTo:0})"></a>
+			<div class="qr-img" style="display: none;"><img alt="二维码" src="img/qrapi.png" style="height: 100px;width: 100px;"></div>
+			<!--
+			<a onclick="showDialogBox(this)" data-module="page" href="javascript:;" title="建议反馈" id="feedback">建议反馈</a>
+			
+			-->
+		</div>
+	</body>
+	<script type="application/javascript">
+		$(function(){
+			$("#gotop6").click(function() {
+TweenMax.to(window, 5, {scrollTo:0});
+ });
+		})
+		
+	</script>
+</html>

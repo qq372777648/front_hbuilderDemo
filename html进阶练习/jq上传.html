@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/jquery-1.8.0.min.js"></script>
+	<script src="js/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="js/jQuery-File-Upload/js/jquery.iframe-transport.js"></script>
+	<script src="js/jQuery-File-Upload/js/jquery.fileupload.js"></script>
+	
+	<body>
+		<!--multiple-->
+		<input id='fileupload' type="file" name="file"   />
+		<div class="bar" style="height: 15px;width: 1px;background-color: red;"></div>
+
+</div>
+
+
+
+
+	</body>
+	
+	<script type="text/javascript">
+		$('#fileupload').fileupload({
+//  __regexoperators___/* ... */
+
+			//url:"http://192.168.1.52/cpsystem/upload/music.action", //http://localhost/cpsystem/upload/music.action
+			url:"http://120.25.177.134:9090/upload/30/mul",
+//			sequentialUploads : true,
+			dataType : 'json',
+
+//			acceptFileTypes : /(\.|\/)(gif|jpe?g|png)$/i,
+			done : function(e, data) {
+				alert("success")
+			},
+		    progressall: function (e, data) {
+		    	//alert(1)
+		        var progress = parseInt(data.loaded / data.total * 100, 10);
+		        $('.bar').css(
+		            'width',
+		            progress + '%'
+		        );
+		    }
+		});
+		
+		
+	</script>
+	
+	
+
+</html>

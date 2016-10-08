@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<script src="js/jquery-1.8.0.min.js"></script>
+	<body>
+<form action="http://120.25.177.134:9090/upload/pic/30/mul" method="post" enctype="multipart/form-data"  >
+<input type="file" name="file" multiple  />
+<input type="button" onclick="$(this).parent() .submit()" value="原始提交">
+</form>
+		
+		
+		
+		
+		
+<form enctype="multipart/form-data" >  
+    <input name="file" type="file" multiple/>  
+    <input type="button" value="ajaxupload" onclick="up()"/>  
+</form> 
+		
+	</body>
+	<script type="text/javascript">
+	function up(){
+		
+//		$.ajax({
+//			url:"http://120.25.177.134:9090/upload/pic/30/mul",//服务器： response.setHeader("Access-Control-Allow-Origin", "*");//允许跨域访问
+//			type : 'post',
+//			dataType : 'json',
+//			async : false,
+//			success : function(data) {
+//				alert(data)
+//			}
+//			
+//		})
+		
+//		$.ajax({  
+//url:"http://120.25.177.134:9090/upload/pic/30/mul",
+//  type: 'POST',  
+//  //Ajax events  
+//  //beforeSend: beforeSendHandler,  
+//  //success: completeHandler,  
+//  //error: errorHandler,  
+//  // Form data  
+//  data: formData,  
+//  dataType : 'json',
+//  //Options to tell jQuery not to process data or worry about content-type.  
+////  cache: false,  
+//contentType: false, 
+//processData: false  
+//}); 
+		
+		
+		return ;
+		
+		
+		$.ajax({
+			url:"http://120.25.177.134:9090/check/30",//服务器： response.setHeader("Access-Control-Allow-Origin", "*");//允许跨域访问
+			type : 'get',
+			dataType : 'json',
+			async : false,
+			success : function(data) {
+				alert(data.docName)
+			}
+			
+		})
+		
+		$.ajax({
+			url:"http://120.25.177.134:9090/upload/30/mul",//服务器： response.setHeader("Access-Control-Allow-Origin", "*");//允许跨域访问
+			type : 'post',
+			dataType : 'json',
+			async : false,
+			success : function(data) {
+				alert(data)
+			}
+			
+		})
+		
+		
+		
+		
+		
+				var formData = new FormData($('form')[0]);  
+$.ajax({  
+    url: 'http://120.25.177.134:9090/upload/30/mul',  //Server script to process data  
+    type: 'POST',  
+    //Ajax events  
+    //beforeSend: beforeSendHandler,  
+    //success: completeHandler,  
+    //error: errorHandler,  
+    // Form data  
+    data: formData,  
+    dataType : 'json',
+    //Options to tell jQuery not to process data or worry about content-type.  
+//  cache: false,  
+  contentType: false, 
+  processData: false  
+}); 
+	}
+
+		
+	</script>
+</html>
