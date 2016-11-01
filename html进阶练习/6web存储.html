@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="storeFunc()">session存</button>
+		<button onclick="loadFunc()">session取</button>
+		<br />
+		<button onclick="storeFunc2()">session存</button>
+		<button onclick="loadFunc2()">session取</button>
+	</body>
+	
+	<script type="application/javascript">
+		function storeFunc(){
+			sessionStorage.setItem("name","lzw");
+		}
+		function loadFunc(){
+			alert(sessionStorage.getItem("name"))
+		}
+		function storeFunc2(){
+			localStorage.setItem("name","asdf");
+		}
+		function loadFunc2(){
+			alert(localStorage.getItem("name"))
+		}
+		
+		
+	</script>
+</html>
