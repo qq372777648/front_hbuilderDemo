@@ -7,13 +7,22 @@
 	<body>
 		<input type="text" />
 		<button onclick="send1()"> 发送到service1</button>
-		<button onclick="send2()"> 发送到service2</button>
+		<button onclick="send2()"> 广播</button>
+		<button onclick="send3()"> 获得客户列表</button>
+		<button onclick="send4()"> 对话</button>
+		<div></div>
 	</body>
 	
 <script src="js/socketio/socket.io-1.4.5.js"></script>
 <script type="text/javascript" src="js/jquery-1.8.0.min.js" ></script>
 <script>
   var socket = io('http://localhost:9090');
+  	socket.on('open', function (data) {
+		alert("连接成功")
+//	    socket.emit('my other event', { my: 'data' });
+	});
+	socket.send("aaaaaaa");//default send to  host:pt/message
+  
 	socket.on('message', function (data) {
 		alert("1:"+data)
 	    console.log(data);
@@ -24,6 +33,16 @@
 	    console.log(data);
 //	    socket.emit('my other event', { my: 'data' });
 	});
+	socket.on('message3', function (data) {
+		alert("3:"+data)
+	    console.log(data);
+	    $("div").html(data);
+//	    socket.emit('my other event', { my: 'data' });
+	});
+	socket.on('message4', function (data) {
+		alert("3:"+data)
+	    console.log(data);
+	});
 	
 	
 	function send1(){
@@ -31,6 +50,12 @@
 	}
 	function send2(){
 		socket.emit('message2', $("input").val());
+	}
+	function send3(){
+		socket.emit('message3', $("input").val());
+	}
+	function send4(){
+		socket.emit('message4', $("input").val());
 	}
 
 
