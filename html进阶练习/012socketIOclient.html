@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<button onclick="send1()"> 发送到service1</button>
+		<button onclick="send2()"> 发送到service2</button>
+	</body>
+	
+<script src="js/socketio/socket.io-1.4.5.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.0.min.js" ></script>
+<script>
+  var socket = io('http://localhost:9090');
+	socket.on('message', function (data) {
+		alert("1:"+data)
+	    console.log(data);
+//	    socket.emit('my other event', { my: 'data' });
+	});
+	socket.on('message2', function (data) {
+		alert("2:"+data)
+	    console.log(data);
+//	    socket.emit('my other event', { my: 'data' });
+	});
+	
+	
+	function send1(){
+		socket.emit('message', $("input").val());
+	}
+	function send2(){
+		socket.emit('message2', $("input").val());
+	}
+
+
+
+
+
+
+//socket.on('connection', function(socket){
+//	console.log("connect")
+//});
+</script>
+</html>

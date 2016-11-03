@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1 {
+				background-color: yellowgreen;
+				width: 200px;
+				height: 50px;
+				border: 1px solid gray;
+				/*transform:rotate(20deg);*/
+				/*transform:scale(5);*/
+				transform:skew(0deg,30deg);
+				/*transform:translate(10px,20px)*/
+				transform-origin:  left top;
+			}
+			
+			#div2 {
+				border: 1px solid gray;
+				width: 200px;
+				height: 50px;
+				position: absolute;
+				
+			}
+			
+			#div3 {
+				background-color: yellowgreen;
+				transition: background-color 1s linear,transform 1s linear;
+			}
+			#div3:hover{
+				background-color: gold;
+				transform:rotate(360deg)
+			}
+			
+			
+			
+			@-webkit-keyframes mystyle{
+				0%{
+					background-color: antiquewhite;
+				}
+				30%{
+					background-color: black;
+					transform:rotate(30deg)
+				}
+				60%{
+					background-color: blue;
+					transform:rotate(-30deg)
+				}
+				100%{
+					transform:rotate(0deg)
+					background-color: red;
+				}
+			}
+			
+			#div4 {
+				background-color: yellowgreen;
+			}
+			#div4:hover{
+				background-color: red;
+				-webkit-animation: mystyle 1s linear;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="div2">
+		</div>
+		
+		<div id="div1">
+			广告
+		</div>
+		
+		<div id="div3">渐变旋转div</div>
+		
+		
+		<div id="div4" style="height: 50px;">自定义样式过度</div>
+		
+		
+		
+	</body>
+</html>

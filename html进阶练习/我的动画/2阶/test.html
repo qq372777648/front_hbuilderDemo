@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#i1{
+		display: block;
+		width:35px;
+		height: 35px;
+		border-radius: 50%;
+		background: linear-gradient(transparent 0%, transparent 70%, #333 30%, #333 100%);
+		-webkit-animation:loading-1 0.6s linear 0s infinite;
+	}
+	#i2{
+		display: block;
+		width:35px;
+		height: 35px;
+		border-radius: 50%;
+		background: linear-gradient(red 30%, blue 80%);
+		-webkit-animation:loading-1 0.6s linear 0s infinite;
+	}
+	#i3{
+		display: block;
+		width:35px;
+		height: 35px;
+		border-radius: 50%;
+		background: linear-gradient(red 30%, transparent 100%);
+		-webkit-animation:loading-1 0.6s linear 0s infinite;
+	}
+	#i4{
+		display: block;
+		width:35px;
+		height: 35px;
+		border-radius: 50%;
+		background: linear-gradient(red 0%, red 30%,blue 30%, green 80%,gray 80%, gray 100%);
+		-webkit-animation:loading-1 0.6s linear 0s infinite;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	.loading-2{
+		width: 40px;
+		height: 40px;
+		position: relative;
+	}
+	.loading-2 i{
+		display: block;
+		border: 2px solid #333;
+		border-color:transparent #333; /*重点*/
+		border-radius: 50%;
+		position: absolute;
+	}
+	.loading-2 i:first-child{
+		width: 35px;
+		height: 35px;
+		top: 0;
+		left: 0;
+		/*-webkit-animation:loading-2 1s ease-in-out 0s infinite;*/
+	}
+	/*.loading-2 i:last-child{
+		width: 15px;
+		height: 15px;
+		top: 10px;
+		left: 10px;
+		-webkit-animation:loading-2 1s ease-in-out 0.5s infinite reverse;
+	}*/
+	
+	
+	
+		</style>
+	
+	<body>
+		<i id="i1"></i>
+		<i id="i2"></i>
+		<i id="i3"></i>
+		<i id="i4"></i>
+		
+		
+		
+		<div class="loading-2">
+				<i></i>
+				<i></i>
+			</div>
+			
+			
+			<div id="div2" style="background-color: gainsboro;width: 100px;height: 50px;transform:rotateX(-45deg);border: solid 1px black;">
+				test
+			</div>
+	</body>
+</html>

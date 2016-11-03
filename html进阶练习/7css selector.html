@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		body{
+			color: goldenrod;
+			background-color: gainsboro;
+		}
+		div [name=xx]{
+			color: greenyellow;
+		}
+		
+		#div2 *:nth-child(even){
+			background-color: yellowgreen;
+		}
+		
+		#div3 h2:nth-of-type(odd){
+			background-color: yellowgreen;
+		}
+		
+		#div4 *:nth-child(3n+1){
+			background-color: burlywood;
+		}
+		
+		div *:only-child{
+			background-color: black;
+		}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div>
+			<span name='xx'>xxxx</span>
+			<span name='xxx'>xxxx2</span>
+		</div>
+		<hr />
+		<div id="div2">
+			<h2>xxx</h2>
+			<span>yyy</span>
+			<h2>xxx</h2>
+			<span>yyy</span>
+			<h2>xxx</h2>
+			<span>yyy</span>
+			<h2>xxx</h2>
+			<span>yyy</span>
+			<h2>xxx</h2>
+			<span>yyy</span>
+		</div>
+		<hr />
+		
+		<div id="div3">
+			<h2>xxx</h2>
+			<span>yyy</span>
+			<h2>xxx</h2>
+			<span>yyy</span>
+			<h2>xxx</h2>
+			<span>yyy</span>
+			<h2>xxx</h2>
+			<span>yyy</span>
+			<h2>xxx</h2>
+			<span>yyy</span>
+		</div>
+		<hr />
+		
+		<div id="div4">
+			<h2>xxx</h2>
+			<h2>xxx</h2>
+			<h2>xxx</h2>
+			<h2>xxx</h2>
+		</div>
+		<hr />
+		<div>
+			<h2>xxx</h2>
+			<h2>xxx</h2>		
+		</div>
+		<hr />
+		<div>
+			<h2>xxx</h2>		
+		</div>
+		
+	</body>
+</html>
